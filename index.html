@@ -17,7 +17,7 @@
       href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
     />
   </head>
-  <body class="noselect day">
+  <body class="noselect day" dir="ltr">
     <script src="./assets/scripts.js"></script>
     <main>
       <nav>
@@ -28,18 +28,23 @@
             <i id="burger-bottom"></i>
           </span>
         </div>
-        <li></li>
         <li>
-          <i id="sun" class="center" style="opacity: 0">🌞</i
-          ><i id="moon" class="center">🌚</i>
+          <i id="ar" class="center">E</i>
+          <i id="en" class="center" style="opacity: 0">E</i>
+        </li>
+        <li>
+          <i id="sun" class="center" style="opacity: 0">🌞</i>
+          <i id="moon" class="center">🌚</i>
         </li>
       </nav>
       <section id="intro">
         <div></div>
         <div>
-          <h2 id="greeting"><i class="shaking">👋</i> Hello World!</h2>
-          <h2 id="me">I am NAWAF ALWESADIE</h2>
-          <h3>
+          <h1 class="en greeting"><i class="shaking">👋</i> Hello World!</h1>
+          <h1 class="ar greeting"><i class="shaking">👋</i> أهلاً أهلاً!</h1>
+          <h1 class="en me">I am NAWAF ALWESADIE</h1>
+          <h1 class="ar me">أنا نواف الوسيدي</h1>
+          <h3 class="en">
             I'm a passionate and creative front-end developer from
             <a
               href="https://www.google.com/maps/place/Qassim,+Saudi+Arabia/"
@@ -47,17 +52,33 @@
               >Qassim, Saudi Arabia</a
             >
           </h3>
+          <h3 class="ar">
+            مطوّر مبدع وشغوف بتطوير الواجهات الأمامية من
+            <a
+              href="https://www.google.com/maps/place/Qassim,+Saudi+Arabia/"
+              target="_blank"
+              >القصيم، المملكة العربية السعودية</a
+            >
+          </h3>
         </div>
       </section>
-      <h3>
+      <h3 class="en">
         I'm currently a Computer Science student at
         <a href="https://su.edu.sa/en/" target="_blank">Shaqra University</a>
       </h3>
-      <h3>
+      <h3 class="ar">
+        أنا حالياًّ طالب علوم حاسب في
+        <a href="https://su.edu.sa/en/" target="_blank">جامعة شقراء</a>
+      </h3>
+      <h3 class="en">
         I consider myself a curious and inquisitive person, so on my spare time
         I try to constantly learn something new to improve my skillset.
       </h3>
-      <h3>
+      <h3 class="ar">
+        اعتبر نفسي شخص فضولي، لذلك احاول بشكل مستمر تعلم شيء جديد لتحسين
+        مهاراتي.
+      </h3>
+      <h3 class="en">
         I have open
         <a
           href="https://twitter.com/messages/compose?recipient_id=825325200384339971"
@@ -67,7 +88,18 @@
         <a href="mailto: s439660809@std.su.edu.sa" target="_blank">Email</a> for
         any kind of inquiries. 🤗
       </h3>
-      <h2 id="h1">🚀 Skills</h2>
+      <h3 class="ar">
+        تواصل معي بـ
+        <a
+          href="https://twitter.com/messages/compose?recipient_id=825325200384339971"
+          target="_blank"
+          >تويتر (الرسائل الخاصة)</a
+        >، <a href="https://wa.me/966505151561" target="_blank">الواتس اب</a> أو
+        <a href="mailto: s439660809@std.su.edu.sa" target="_blank">الايميل</a>
+        لأي سؤال أو استفسار. 🤗
+      </h3>
+      <h2 class="en skills">🚀 Skills</h2>
+      <h2 class="ar skills">🚀 المهارات</h2>
       <section id="skills">
         <i style="border-color: rgba(244, 150, 152, 0.99)"
           ><span class="fab fa-java"></span> Java</i
@@ -103,11 +135,41 @@
           ><span class="fab na-inkscape"></span> Inkscape</i
         >
       </section>
+      <h2 class="en projects">👨‍💻 Projects</h2>
+      <h2 class="ar projects">👨‍💻 المشاريع</h2>
+      <section id="projects">
+        <a href="https://missbar.herokuapp.com/" target="_blank">
+          <i>
+            <div class="container">
+              <div>
+                <img
+                  src="./assets/icons/Missbar.svg"
+                  alt="Missbar"
+                  class="active"
+                />
+                <img src="./assets/icons/Missbar-light.svg" alt="Missbar" />
+              </div>
+              <div>
+                <b class="en">Missbar</b>
+                <b class="ar">مسبار</b>
+                <h5 class="en">
+                  Build and design 3D prototypes for buildings.
+                </h5>
+                <h5 class="ar">
+                  بناء وتصميم نماذج ثلاثية الأبعاد للمباني والمنشئات.
+                </h5>
+              </div>
+            </div>
+          </i>
+        </a>
+      </section>
       <hr />
     </main>
     <footer>
-      <h4>Made with ❤ by yours truly</h4>
-      <h4>Copyright © 2020 | All Rights Reserved</h4>
+      <h4 class="en">Made with ❤ by yours truly</h4>
+      <h4 class="ar">صُنِع بكل ❤ نواف الوسيدي</h4>
+      <h4 class="en">Copyright © 2020 | All Rights Reserved</h4>
+      <h4 class="ar">حقوق الحفظ © 2020 | جميع الحقوق محفوظة</h4>
       <svg width="24" height="24" viewBox="0 0 134.376 134.371">
         <g id="logo" transform="translate(5 4.988)">
           <path

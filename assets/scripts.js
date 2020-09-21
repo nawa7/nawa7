@@ -37,12 +37,14 @@ $(document).ready(function () {
   $("nav div").click(navBar);
   //## Setup Light/Dark Mode OnClick ##//
   const body = $("body"),
+    img = $("#projects i:nth-of-type(1) img"),
     sun = $("#sun"),
     moon = $("#moon");
   var mode;
   if (localStorage.getItem("mode") == "night") {
     body.toggleClass("day");
     body.toggleClass("night");
+    img.toggleClass("active");
     dayOrNight();
     mode = localStorage.getItem("night");
   } else {
@@ -51,6 +53,7 @@ $(document).ready(function () {
   $("nav li:nth-of-type(2)").click(function () {
     body.toggleClass("day");
     body.toggleClass("night");
+    img.toggleClass("active");
     dayOrNight();
     if (body.hasClass("night")) {
       mode = "night";
@@ -69,6 +72,41 @@ $(document).ready(function () {
       sun.css("opacity", "0");
     }
   }
+  //## Setup EN/AR OnClick ##//
+  console.log(body.prop("dir"));
+  const en = $(".en"),
+    ar = $(".ar"),
+    e = $("#en"),
+    a = $("#ar");
+  var lang = "";
+  if (localStorage.getItem("lang") == "ar") {
+    body.toggleClass("font");
+    body.prop("dir", "rtl");
+    en.hide();
+    ar.fadeIn("slow");
+    e.css("opacity", "1");
+    a.css("opacity", "0");
+  }
+  $("nav li:nth-of-type(1)").click(function () {
+    if (body.prop("dir") == "ltr") {
+      lang = "ar";
+      body.toggleClass("font");
+      body.prop("dir", "rtl");
+      en.hide();
+      ar.fadeIn("slow");
+      e.css("opacity", "1");
+      a.css("opacity", "0");
+    } else {
+      lang = "en";
+      body.toggleClass("font");
+      body.prop("dir", "ltr");
+      en.fadeIn("slow");
+      ar.hide();
+      e.css("opacity", "0");
+      a.css("opacity", "1");
+    }
+    localStorage.setItem("lang", lang);
+  });
   //## Setup Skills OnHover ##//
   const length = $("#skills i").length;
   for (var x = 1; x <= length; x++) {

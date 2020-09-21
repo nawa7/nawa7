@@ -2,6 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Ranchers&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kufam:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tajawal&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
 /*** General Setups ***/
 body {
   margin: 0 15px;
@@ -10,6 +16,15 @@ body {
   -webkit-appearance: none;
   -webkit-tap-highlight-color: #ffffff00;
   transition: background-color ease-in-out 0.3s;
+}
+body.font {
+  font-family: var(--ar-font);
+}
+.en {
+  display: visible;
+}
+.ar {
+  display: none;
 }
 .noselect {
   user-select: none;
@@ -25,6 +40,7 @@ body {
   --system-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
+  --ar-font: "Tajawal", var(--system-font);
   --manrop-font: "Manrope", var(--system-font);
   --base-font-size: 1rem;
   --burger-duration: 0.45s;
@@ -42,6 +58,9 @@ body {
   --greeting-shadow: rgb(254, 211, 48);
   --me-shadow: rgb(164, 203, 255);
   --skills-shadow: rgb(253, 154, 157);
+  --projects-shadow: rgb(219, 183, 255);
+  --projects-border: rgba(9, 17, 34, 0.2);
+  --projects-box-shadow: rgba(45, 74, 138, 0.25);
 }
 .night,
 :root {
@@ -55,6 +74,9 @@ body {
   --greeting-shadow: rgba(254, 209, 48, 0);
   --me-shadow: rgba(164, 203, 255, 0);
   --skills-shadow: rgba(253, 154, 157, 0);
+  --projects-shadow: rgba(219, 183, 255, 0);
+  --projects-border: rgba(85, 97, 122, 0.4);
+  --projects-box-shadow: rgba(45, 74, 138, 0.25);
 }
 /*** Navigation Bar ***/
 i {
@@ -151,6 +173,7 @@ nav li {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
   border-radius: 50%;
   opacity: 0;
+  font-family: var(--system-font);
   transition: transform ease-in-out var(--li-duration),
     left ease-in-out var(--li-duration), opacity ease-in-out var(--li-duration),
     background-color ease-in-out 0.3s;
@@ -160,11 +183,22 @@ nav li .center {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: var(--text-secondary);
   font-size: 18pt;
   opacity: 0.85;
 }
-nav li:nth-of-type(2) i {
+nav li i {
   transition: opacity ease-in-out 0.3s;
+}
+#ar.center {
+  font-family: "Pacifico";
+  left: 45%;
+}
+#en.center {
+  font-family: "Abril Fatface";
+  font-size: 20pt;
+  top: 48%;
+  left: 51%;
 }
 /*** Main Section ***/
 main {
@@ -184,7 +218,8 @@ hr {
 }
 h2,
 h3,
-h4 {
+h4,
+h5 {
   font-weight: normal;
 }
 #intro {
@@ -217,11 +252,19 @@ h4 {
     margin-top: 0 !important;
   }
 }
-#greeting {
-  font-family: "Ranchers", var(--system-font);
+h1 {
+  font-weight: 400;
+}
+.greeting {
   font-size: calc(var(--base-font-size) * 2.25);
   color: var(--text-primary);
   text-shadow: 2px 2px 0 var(--greeting-shadow);
+}
+.greeting.en {
+  font-family: "Ranchers", var(--system-font);
+}
+.greeting.ar {
+  font-family: "Lalezar", var(--system-font);
 }
 .shaking {
   display: inline-block;
@@ -233,11 +276,16 @@ h4 {
   -webkit-animation-iteration-count: infinite;
   transform-origin: 70% 70%;
 }
-#me {
-  font-family: "Acme", var(--manrop-font);
+.me {
   font-size: calc(var(--base-font-size) * 1.8);
   color: var(--text-primary);
   text-shadow: 2px 2px 0 var(--me-shadow);
+}
+.me.en {
+  font-family: "Acme", var(--manrop-font);
+}
+.me.ar {
+  font-family: "Kufam", var(--manrop-font);
 }
 a {
   text-decoration: none;
@@ -253,15 +301,19 @@ a:visited {
 h3 {
   color: var(--text-secondary);
 }
-#h1 {
+h2 {
   font-weight: 700;
   color: var(--text-primary);
+}
+h2.skills {
   text-shadow: 2px 2px 0 var(--skills-shadow);
 }
 #skills i {
+  direction: ltr;
   display: inline-block;
   margin: 0.4rem 0.6rem 0.4rem 0;
   padding: 0.3rem 0.8rem 0.4rem;
+  font-family: var(--system-font);
   color: var(--text-secondary);
   border: 1px solid;
   border-radius: 999999px;
@@ -270,13 +322,46 @@ h3 {
 #skills span {
   font-size: 0.9rem;
 }
-#skills span.jquery {
-  width: 11px;
-  height: 11px;
-  background-color: var(--text-secondary);
-  background: url(./icons/jquery.svg) no-repeat top left;
-  background-size: contain;
+h2.projects {
+  text-shadow: 2px 2px 0 var(--projects-shadow);
 }
+#projects i {
+  display: inline-block;
+  width: 18rem;
+  margin: 0.4rem 0 0.4rem;
+  padding: 0.6rem 0.8rem 0.4rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--projects-border);
+  border-radius: 25px;
+  transition: all 0.2s ease-in-out !important;
+}
+#projects i:hover {
+  box-shadow: 0 0 10px var(--projects-box-shadow);
+  color: var(--text-primary);
+}
+#projects i:hover b {
+  color: var(--anchor-color);
+  text-decoration: underline;
+}
+#projects img {
+  width: 5rem;
+  display: none;
+}
+#projects img.active {
+  display: block;
+}
+#projects i div.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#projects i div div:nth-of-type(2) {
+  margin: 0 0.8rem;
+}
+#projects i h5 {
+  margin: 0.8rem auto 0.4rem;
+}
+/*** Footer ***/
 footer {
   color: var(--text-secondary);
   text-align: center;
